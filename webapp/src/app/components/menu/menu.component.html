@@ -1,0 +1,28 @@
+<div class="d-none d-md-block">
+  <button mat-icon-button aria-label="Go to Home" class="tool-bar-button" >
+    <mat-icon aria-hidden="false" aria-label="Home">home</mat-icon>
+  </button>
+  <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon" class="tool-bar-button" >
+    <mat-icon>account_tree</mat-icon>
+  </button>
+  <button mat-icon-button color="warn" aria-label="login" class="tool-bar-button" >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</div>
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" class="tool-bar-button d-md-none d-xl-none d-xxl-none">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Redial</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voice mail</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Disable alerts</span>
+  </button>
+</mat-menu>
