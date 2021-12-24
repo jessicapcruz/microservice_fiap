@@ -1,5 +1,6 @@
 export interface CourseImg {
   img: string,
   title: string,
-  subtitle: string
+  subtitle: string,
+  featured: number
 }

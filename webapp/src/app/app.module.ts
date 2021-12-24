@@ -9,8 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { MenuComponent } from './core/components/menu/menu.component';
+import { SearchBarComponent } from './core/components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
