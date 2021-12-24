@@ -17,8 +17,6 @@ import { AdvancedImageListComponent } from './components/advanced-image-list/adv
     HomeRoutingModule,
     MatGridListModule
   ],
-  exports: [
-    HomeComponent
-  ]
+  exports: []
 })
 export class HomeModule { }
