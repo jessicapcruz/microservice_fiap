@@ -1,10 +1,7 @@
-<div class="container-img-list">
-  <mat-grid-list cols="4" rowHeight="200px" class="imageList" *ngFor="let course of courses">
-    <mat-grid-tile [colspan]="course.featured ? 2 : 1" [rowspan]="course.featured ? 2 : 1" class="titleBar" >
-      <figure>
-        <img [src]="course.img" alt="course.title" />
-        <figcaption>{{course.subtitle}}</figcaption>
-      </figure>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+<mat-grid-list cols="4" rowHeight="200px" class="container-img-list" >
+  <mat-grid-tile *ngFor="let course of courses" [colspan]="course.featured ? 2 : 1" [rowspan]="course.featured ? 2 : 1" class="imageList">
+    <mat-grid-tile-header>{{course.title}}</mat-grid-tile-header>
+    <img [src]="course.img" alt="course.title" />
+    <mat-grid-tile-footer>{{course.subtitle}}</mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>
