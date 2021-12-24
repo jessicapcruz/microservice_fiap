@@ -1,0 +1,50 @@
+[
+  {
+    "img": "../../assets/images/kotlincourse.jpg",
+    "title": "Kotlin",
+    "subtitle": "Classificação:",
+    "featured" : false
+  },
+  {
+    "img": "../../assets/images/kotlincourse.jpg",
+    "title": "MongoDB",
+    "subtitle": "Classificação:",
+    "featured" : false
+ },
+ {
+  "img": "../../assets/images/kotlincourse.jpg",
+  "title": "Sql Completo",
+  "subtitle": "Classificação:",
+  "featured": false
+ },
+ {
+  "img": "../../assets/images/kotlincourse.jpg",
+  "title": "Python",
+  "subtitle": "Classificação:",
+  "featured":false
+ },
+ {
+  "img": "../../assets/images/kotlincourse.jpg",
+  "title": "Java Para Web",
+  "subtitle": "Classificação:",
+  "featured":false
+ },
+ {
+  "img": "../../assets/images/kotlincourse.jpg",
+  "title": "Java",
+  "subtitle": "Classificação:",
+  "featured" : false
+ },
+ {
+  "img": "../../assets/images/kotlincourse.jpg",
+  "title": "Internet das Coisas (IOT)",
+  "subtitle": "Classificação:",
+  "featured":false
+ },
+ {
+  "img": "../../assets/images/kotlincourse.jpg",
+  "title": ".Net C#",
+  "subtitle": "Classificação:",
+  "featured":false
+ }
+]
