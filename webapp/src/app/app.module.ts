@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './core/components/menu/menu.component';
 import { SearchBarComponent } from './core/components/search-bar/search-bar.component';
 import { HomeModule } from './home/home.module';
+import { ContentModule } from './content/content.module';
+import { ContentAddModule } from './content/content-add.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { HomeModule } from './home/home.module';
     MatIconModule,
     MatMenuModule,
     MatFormFieldModule,
-    HomeModule
+    HomeModule,
+    ContentModule,
+    ContentAddModule
   ],
   providers: [],
   bootstrap: [AppComponent]
