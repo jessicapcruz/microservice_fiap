@@ -1,0 +1,44 @@
+<div>
+  <div class="pt-2 ">
+    <div class="flex-grow:1">
+      <div class="container">
+        <form (ngSubmit)="submitData(form)">
+            <mat-form-field appearance="standard">
+                <mat-label>Name</mat-label>
+                <input matInput maxlength="15" inputmode="tel" placeholder="Type name" formControlName="name" #nameInput>
+                <mat-hint>Mini character 10: {{ nameInput.value.length }}/10</mat-hint>
+                <mat-error>Name is required</mat-error>
+                <mat-error **ngIf="(form.get('name')).errors?.minlength">
+                    Please enter more than 10 character
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Email Address:</mat-label>
+                <input matInput type="email" formControlName="email" placeholder="Your email">
+                <mat-icon matSuffix>mail_outline</mat-icon>
+                <mat-hint>Input the fully qualified email address</mat-hint>
+                <mat-error **ngIf="(form.get('email')).errors?.required">Email is required</mat-error>
+                <mat-error **ngIf="(form.get('email')).errors?.pattern">Please enter valid email</mat-error>
+            </mat-form-field>
+
+            <!--To do: Add Password-->
+            <div style="margin-top:10px;">
+                <div style="margin-right:3%; color:#6b6b6b;">
+                    <mat-label>Gender</mat-label>
+                </div>
+                <mat-radio-group formControlName="gender">
+                    <mat-radio-button value="F">Feminino</mat-radio-button>
+                    <mat-radio-button value="M">Masculino</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div mat-dialog-actions align="end">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+            </div>
+        </form>
+        <div>{{ form.value | json }}</div>
+    </div>
+    </div>
+  </div>
+</div>
