@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,7 @@ export class MenuComponent implements OnInit {
   @ViewChild(MatMenuTrigger)
   trigger!: MatMenuTrigger;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,4 +19,13 @@ export class MenuComponent implements OnInit {
   onToggleMenu() {
     this.trigger.openMenu();
   }
+
+  goToHome() {
+    this.router.navigate(['/home']);
+  }
+
+  goToContent() {
+    this.router.navigate(['/content']);
+  }
+
 }
