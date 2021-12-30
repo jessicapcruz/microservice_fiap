@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'content-add',
     loadChildren: () => import('./content/content-add.module').then(m => m.ContentAddModule)
+  },
+  {
+    path: 'user-add',
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   }
 ];
 

@@ -1,43 +1,51 @@
 <div>
-  <div class="pt-2 ">
-    <div class="flex-grow:1">
+  <div class="pt-2">
+    <div>
       <div class="container">
-        <form (ngSubmit)="submitData(form)">
+        <form *ngIf='userForm' [formGroup]="userForm" (ngSubmit)="OnSubmitData(userForm)">
             <mat-form-field appearance="standard">
-                <mat-label>Name</mat-label>
-                <input matInput maxlength="15" inputmode="tel" placeholder="Type name" formControlName="name" #nameInput>
-                <mat-hint>Mini character 10: {{ nameInput.value.length }}/10</mat-hint>
-                <mat-error>Name is required</mat-error>
-                <mat-error **ngIf="(form.get('name')).errors?.minlength">
-                    Please enter more than 10 character
+                <mat-label>Usuário</mat-label>
+                <input matInput maxlength="15" placeholder="Usuário" formControlName="name" #nameInput>
+                <mat-hint>Mini character 5: {{ nameInput.value.length }}/10</mat-hint>
+                <mat-error *ngIf="f['name'].errors && f['name'].errors['required']">Usuário é obrigatório</mat-error>
+                <mat-error *ngIf="f['name'].errors && f['name'].errors['minlength']">
+                    O usuário deve conter ao menos 5 caracteres
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="legacy">
-                <mat-label>Email Address:</mat-label>
-                <input matInput type="email" formControlName="email" placeholder="Your email">
-                <mat-icon matSuffix>mail_outline</mat-icon>
-                <mat-hint>Input the fully qualified email address</mat-hint>
-                <mat-error **ngIf="(form.get('email')).errors?.required">Email is required</mat-error>
-                <mat-error **ngIf="(form.get('email')).errors?.pattern">Please enter valid email</mat-error>
+                <mat-label>Email:</mat-label>
+                <input matInput type="email" formControlName="email" placeholder="E-mail">
+                <mat-hint>Insira um e-mail válido</mat-hint>
+                <mat-error *ngIf="f['email'].errors && f['email'].errors['required']">Email é obrigatório</mat-error>
+                <mat-error *ngIf="f['email'].errors && f['email'].errors['pattern']">Formato do e-mail inválido</mat-error>
             </mat-form-field>
 
-            <!--To do: Add Password-->
-            <div style="margin-top:10px;">
-                <div style="margin-right:3%; color:#6b6b6b;">
-                    <mat-label>Gender</mat-label>
-                </div>
-                <mat-radio-group formControlName="gender">
-                    <mat-radio-button value="F">Feminino</mat-radio-button>
-                    <mat-radio-button value="M">Masculino</mat-radio-button>
-                </mat-radio-group>
-            </div>
+            <mat-form-field class="full-width">
+              <mat-label>Senha:</mat-label>
+              <input matInput type="password" placeholder="Password" formControlName="password" required>
+              <mat-error *ngIf="f['password'].errors && f['password'].errors['required']">Email é obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Confirm a Senha:</mat-label>
+              <input matInput type="password" placeholder="Confirm Password" formControlName="confirm_password"  required>
+              <mat-error *ngIf="f['confirm_password'].errors && f['confirm_password'].errors['required']">Confirme a senha</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+              <mat-label>Gênero</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option value="F">Feminino</mat-option>
+                <mat-option value="M">Masculino</mat-option>
+              </mat-select>
+            </mat-form-field>
 
             <div mat-dialog-actions align="end">
-                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Submit</button>
             </div>
         </form>
-        <div>{{ form.value | json }}</div>
+        <div>{{ userForm.value | json }}</div>
     </div>
     </div>
   </div>

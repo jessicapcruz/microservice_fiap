@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, AbstractControl, FormControl  } from '@angular/forms';
+import { UserAddRequest } from '../../models/request/user-add-request';
 
 import { UserService } from '../../services/user.service';
+import Validation from '../../validators/validation';
 
 @Component({
   selector: 'app-user-add',
@@ -9,24 +11,50 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./user-add.component.scss']
 })
 export class UserAddComponent implements OnInit {
-  form!: FormGroup;
+  userForm!: FormGroup;
 
-  constructor(private userService: UserService, private fb: FormBuilder) {
-
-  }
-
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      name: [null, [Validators.required, Validators.minLength(10)]],
+  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+    this.userForm = this.formBuilder.group({
+      name: [null, [Validators.required, Validators.minLength(5)]],
       email: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       gender: [null],
       password: [null, [Validators.required, Validators.minLength(6)]],
-      confirmPassword: [null, [Validators.required]],
+      confirm_password: [null, [Validators.required]],
+    },
+    {
+      validators: [Validation.match('password', 'confirm_password')]
     });
   }
 
-  submitData(form: any) {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(form.value, null, 4));
+  /** Events */
+  //On Ready DOM event
+  ngOnInit(): void {
+
+  }
+
+  //On submit user data event
+  OnSubmitData(form: any) {
+    let request : UserAddRequest =  new UserAddRequest(
+      form.value.name,
+      form.value.name,
+      form.value.email,
+      form.value.password,
+      form.value.gender
+    );
+
+    this.userService.register(request);
+  }
+
+  //Reset form event
+  onReset(): void {
+    //this.submitted = false;
+    this.userForm.reset();
+  }
+
+  /** Functions */
+  //Get instatiated formGroup
+  get f(): { [key: string]: AbstractControl } {
+    return this.userForm.controls;
   }
 
 }
