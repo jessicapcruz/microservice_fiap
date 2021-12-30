@@ -6,14 +6,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './core/components/menu/menu.component';
 import { SearchBarComponent } from './core/components/search-bar/search-bar.component';
 import { HomeModule } from './home/home.module';
 import { ContentModule } from './content/content.module';
-import { ContentAddModule } from './content/content-add.module';
 
 @NgModule({
   declarations: [
@@ -31,8 +29,7 @@ import { ContentAddModule } from './content/content-add.module';
     MatMenuModule,
     MatFormFieldModule,
     HomeModule,
-    ContentModule,
-    ContentAddModule
+    ContentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

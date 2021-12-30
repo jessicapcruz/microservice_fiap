@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatGridListModule} from '@angular/material/grid-list';
-
-import { HomeRoutingModule } from './content-routing.module';
+import { ContentRoutingModule } from './content-routing.module';
 import { ContentComponent } from './components/content/content.component';
 import { ContentListComponent } from './components/content-list/content-list.component';
 
+import { ContentAddComponent } from './components/content-add/content-add.component';
+import { MatSelectModule } from  '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ContentComponent,
-    ContentListComponent
+    ContentListComponent, 
+    ContentAddComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
-    MatGridListModule
+    ContentRoutingModule, 
+    MatSelectModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    MatInputModule
   ],
   exports: []
 })
