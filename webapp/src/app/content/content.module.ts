@@ -8,6 +8,7 @@ import { ContentAddComponent } from './components/content-add/content-add.compon
 import { MatSelectModule } from  '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import  { MatDividerModule } from '@angular//material/divider';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule, 
     FormsModule, 
     ReactiveFormsModule, 
-    MatInputModule
+    MatInputModule, 
+    MatDividerModule
   ],
   exports: []
 })
