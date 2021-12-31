@@ -6,6 +6,18 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'content',
+    loadChildren: () => import('./content/content.module').then(m => m.ContentModule)
+  },
+  {
+    path: 'content-add',
+    loadChildren: () => import('./content/content-add.module').then(m => m.ContentAddModule)
+  },
+  {
+    path: 'user-add',
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   }
 ];
 

@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <h2 class="section-title">Registre seus dados</h2>
+
+        <form *ngIf='userForm' [formGroup]="userForm" (ngSubmit)="OnSubmitData(userForm)">
+            <mat-form-field class="full-width" appearance="standard">
+                <mat-label>Usuário</mat-label>
+                <input matInput maxlength="15" placeholder="Usuário" formControlName="name" #nameInput>
+                <mat-hint>Mini character 5: {{ nameInput.value.length }}/10</mat-hint>
+                <mat-error *ngIf="f['name'].errors && f['name'].errors['required']">Usuário é obrigatório</mat-error>
+                <mat-error *ngIf="f['name'].errors && f['name'].errors['minlength']">
+                    O usuário deve conter ao menos 5 caracteres
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="legacy">
+                <mat-label>Email:</mat-label>
+                <input matInput type="email" formControlName="email" placeholder="E-mail">
+                <mat-hint>Insira um e-mail válido</mat-hint>
+                <mat-error *ngIf="f['email'].errors && f['email'].errors['required']">Email é obrigatório</mat-error>
+                <mat-error *ngIf="f['email'].errors && f['email'].errors['pattern']">Formato do e-mail inválido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Senha:</mat-label>
+              <input matInput type="password" placeholder="Password" formControlName="password" required>
+              <mat-error *ngIf="f['password'].errors && f['password'].errors['required']">Email é obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Confirm a Senha:</mat-label>
+              <input matInput type="password" placeholder="Confirm Password" formControlName="confirm_password"  required>
+              <mat-error *ngIf="f['confirm_password'].errors && f['confirm_password'].errors['required']">Confirme a senha</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="legacy">
+              <mat-label>Gênero</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option value="F">Feminino</mat-option>
+                <mat-option value="M">Masculino</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div mat-dialog-actions align="end">
+                <mat-error *ngIf="errorMessage != undefined">{{ errorMessage }}</mat-error>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Submit</button>
+            </div>
+        </form>
+        <!-- <div>{{ userForm.value | json }}</div> -->
+      </div>
+  </div>
+</div>
