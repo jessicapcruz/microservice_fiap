@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContentAddComponent } from './content-add.component';
 
-describe('HomeComponent', () => {
+describe('ContentAddComponent', () => {
   let component: ContentAddComponent;
   let fixture: ComponentFixture<ContentAddComponent>;
 
