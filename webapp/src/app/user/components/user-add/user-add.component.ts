@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router"
 import { Validators, FormBuilder, FormGroup, AbstractControl, FormControl  } from '@angular/forms';
 import { UserAddRequest } from '../../models/request/user-add-request';
 
@@ -11,9 +12,10 @@ import Validation from '../../validators/validation';
   styleUrls: ['./user-add.component.scss']
 })
 export class UserAddComponent implements OnInit {
+  errorMessage!: string;
   userForm!: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private userService: UserService, private formBuilder: FormBuilder) {
     this.userForm = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(5)]],
       email: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
@@ -43,9 +45,16 @@ export class UserAddComponent implements OnInit {
         form.value.gender
       );
 
-      this.userService.register(request);
+      this.userService.register(request).subscribe({
+        next: data => {
+          this.router.navigate(['/login']);
+        },
+        error: error => {
+            this.errorMessage = error.message;
+            console.error('There was an error!', error);
+        }
+      });
     }
-
   }
 
   //Reset form event
