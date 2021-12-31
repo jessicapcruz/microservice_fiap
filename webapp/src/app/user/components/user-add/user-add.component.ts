@@ -34,20 +34,22 @@ export class UserAddComponent implements OnInit {
 
   //On submit user data event
   OnSubmitData(form: any) {
-    let request : UserAddRequest =  new UserAddRequest(
-      form.value.name,
-      form.value.name,
-      form.value.email,
-      form.value.password,
-      form.value.gender
-    );
+    if (form.invalid) {
+      let request : UserAddRequest =  new UserAddRequest(
+        form.value.name,
+        form.value.name,
+        form.value.email,
+        form.value.password,
+        form.value.gender
+      );
 
-    this.userService.register(request);
+      this.userService.register(request);
+    }
+
   }
 
   //Reset form event
   onReset(): void {
-    //this.submitted = false;
     this.userForm.reset();
   }
 

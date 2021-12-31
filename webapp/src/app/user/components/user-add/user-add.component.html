@@ -1,9 +1,10 @@
-<div>
-  <div class="pt-2">
-    <div>
-      <div class="container">
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <h2 class="section-title">Registre seus dados</h2>
+
         <form *ngIf='userForm' [formGroup]="userForm" (ngSubmit)="OnSubmitData(userForm)">
-            <mat-form-field appearance="standard">
+            <mat-form-field class="full-width" appearance="standard">
                 <mat-label>Usuário</mat-label>
                 <input matInput maxlength="15" placeholder="Usuário" formControlName="name" #nameInput>
                 <mat-hint>Mini character 5: {{ nameInput.value.length }}/10</mat-hint>
@@ -13,7 +14,7 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="legacy">
+            <mat-form-field class="full-width" appearance="legacy">
                 <mat-label>Email:</mat-label>
                 <input matInput type="email" formControlName="email" placeholder="E-mail">
                 <mat-hint>Insira um e-mail válido</mat-hint>
@@ -33,7 +34,7 @@
               <mat-error *ngIf="f['confirm_password'].errors && f['confirm_password'].errors['required']">Confirme a senha</mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="legacy">
+            <mat-form-field class="full-width" appearance="legacy">
               <mat-label>Gênero</mat-label>
               <mat-select formControlName="gender">
                 <mat-option value="F">Feminino</mat-option>
@@ -45,8 +46,7 @@
                 <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Submit</button>
             </div>
         </form>
-        <div>{{ userForm.value | json }}</div>
-    </div>
-    </div>
+        <!-- <div>{{ userForm.value | json }}</div> -->
+      </div>
   </div>
 </div>
