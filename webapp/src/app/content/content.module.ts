@@ -9,6 +9,8 @@ import { MatSelectModule } from  '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import  { MatDividerModule } from '@angular//material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import  { MatDividerModule } from '@angular//material/divider';
     FormsModule, 
     ReactiveFormsModule, 
     MatInputModule, 
-    MatDividerModule
+    MatDividerModule, 
+    MatIconModule, 
+    MatListModule
   ],
   exports: []
 })

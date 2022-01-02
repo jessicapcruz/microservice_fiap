@@ -1,3 +1,13 @@
-<div>
-
-</div>
+  <mat-list>
+    <div mat-subheader></div>
+    <mat-list-item *ngFor="let content of contents">
+      <mat-icon mat-list-icon>description</mat-icon>
+      <div mat-line>{{content.title}}</div>
+      <div mat-line> {{content.subtitle}} </div>
+      <div mat-line> {{content.description}} </div>
+      <button mat-icon-button aria-label="Excluir item">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
