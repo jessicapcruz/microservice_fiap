@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Content } from '../../models/content';
+import { ContentService } from '../../services/content.service';
 
 @Component({
   selector: 'app-content-list',
@@ -7,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentListComponent implements OnInit {
 
+  contents: Content[] = [];
+  contentService : ContentService;
 
   constructor() {
+    this.contentService = new ContentService();
 
   }
 
   ngOnInit(): void {
+    this.contents = this.contentService.getAll();
+    console.log(this.contents);
   }
+
 
 }
