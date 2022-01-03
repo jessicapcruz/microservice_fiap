@@ -18,6 +18,7 @@ export class AuthService {
   }
 
   isValid(){
-    return true;
+    let token = localStorage.getItem('token');
+    return token != null;
   }
 }
