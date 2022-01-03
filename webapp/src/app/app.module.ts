@@ -11,6 +11,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+
+MatCardModule
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,13 +22,15 @@ import { ContentModule } from './content/content.module';
 import { MenuComponent } from './core/components/menu/menu.component';
 import { SearchBarComponent } from './core/components/search-bar/search-bar.component';
 import { HomeModule } from './home/home.module';
+import { LoginComponent } from './core/components/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,7 @@ import { HomeModule } from './home/home.module';
     MatSelectModule,
     MatRadioModule,
     MatButtonModule,
+    MatCardModule,
     HomeModule,
     ContentModule
   ],
