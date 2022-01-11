@@ -10,7 +10,7 @@
   <mat-form-field class="full-width" appearance="fill">
     <mat-label>Nome</mat-label>
     <input type="text" matInput [formControl]="nomeFormControl" [errorStateMatcher]="matcher"
-           placeholder="Ex. pat@example.com">
+           placeholder="Ex.: SQL - Fundamentos">
     <mat-hint>Campo obrigatório!</mat-hint>
     <mat-error *ngIf="!nomeFormControl.hasError('required')">
       Por favor, insira um nome valido
