@@ -35,7 +35,7 @@ public class EmailService {
             e.printStackTrace();
             emailmodel.setStatusEmail(StatusEmail.ERROR);
         } finally {
-            return emailRepository.save(emailmodel);
+            return emailmodel;//emailRepository.save(emailmodel);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.fiap.sociallearnapi.msg.controller;
 
 import com.fiap.sociallearnapi.msg.exceptions.ApiErrorException;
 import com.fiap.sociallearnapi.msg.model.Email;
-import com.fiap.sociallearnapi.msg.request.EmailResquest;
+import com.fiap.sociallearnapi.msg.request.EmailRequest;
 import com.fiap.sociallearnapi.msg.response.EmailResponse;
 import com.fiap.sociallearnapi.msg.service.EmailService;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +24,7 @@ public class EmailController {
 
     @ApiOperation(value = "Sending e-mail")
     @PostMapping("/send")
-    public ResponseEntity<EmailResponse> send(@RequestBody @Valid EmailResquest emailRequest){
+    public ResponseEntity<EmailResponse> send(@RequestBody @Valid EmailRequest emailRequest){
         try {
             Email emailModel =  emailRequest.toEntity();
             Email sentEmail = emailService.send(emailModel);
