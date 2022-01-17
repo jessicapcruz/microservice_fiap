@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailResquest {
+public class EmailRequest {
 
     @NotBlank
     @javax.validation.constraints.Email
