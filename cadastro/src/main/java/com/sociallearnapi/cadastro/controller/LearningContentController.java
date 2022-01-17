@@ -36,29 +36,6 @@ public class LearningContentController {
         }
     }
 
-    @ApiOperation(value = "Search learning content by id")
-    @GetMapping("/{learningContentId}")
-    public ResponseEntity<LearningContentResponse> findById(
-            @PathVariable final String learningContentId) {
-        try {
-            var learningContent = learningContentService.findById(learningContentId);
-            return ResponseEntity.ok().body(learningContent.toResponse());
-        } catch (ApiErrorException e) {
-            e.printStackTrace();
-            return ResponseEntity.status(e.getStatus()).header(e.getMessage()).build();
-        }
-    }
-
-    @ApiOperation(value = "Search all learning content")
-    @GetMapping("/all/itens")
-    public ResponseEntity<List<LearningContentResponse>> findAll() {
-        List<LearningContent> learningContentList = learningContentService.findAll();
-        List<LearningContentResponse> learningContentResponseList = learningContentList.stream()
-                .map(learningContent -> learningContent.toResponse())
-                .collect(Collectors.toList());
-        return ResponseEntity.ok().body(learningContentResponseList);
-    }
-
     @ApiOperation(value = "Update learning content")
     @PutMapping("/update/{learningContentId}")
     public ResponseEntity<LearningContentResponse> update(@PathVariable String learningContentId,
