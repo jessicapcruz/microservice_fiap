@@ -1,0 +1,30 @@
+version: "3"
+services:
+  rabbitmq:
+    image: rabbitmq:3.9-management
+    hostname: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    restart: always
+  # sociallearnapi:
+  #   build:
+  #     context: ./consulta
+  #     dockerfile: dockerfile
+  #   ports:
+  #     - 80:80
+  sociallearnmsg:
+    image: georgefurtado/sociallearnmsg:sociallearn-msg-v1
+    ports:
+      - 8080:8080
+    links:
+      - rabbitmq:rabbitmq
+    restart: on-failure
+    depends_on:
+      - rabbitmq
+      # - sociallearnapi
+    environment:
+        - SPRING_RABBITMQ_HOST=rabbitmq
+        - SPRING_RABBITMQ_PORT=5672
+        - SPRING_RABBITMQ_USERNAME=guest
+        - SPRING_RABBITMQ_PASSWORD=guest
