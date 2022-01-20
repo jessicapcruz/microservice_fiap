@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rabbitmq
+  strategy: 
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+        zone: prod
+        version: v1
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3.9-management
+          ports:
+            - containerPort: 5672
+            - containerPort: 15672
+      hostname: rabbitmq
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: sociallearnmsg-rc
+spec:
+  replicas: 2
+  selector:
+    app: sociallearnmsg
+  template:
+    metadata:
+      name: sociallearnmsg
+      labels:
+        app: sociallearnmsg
+    spec:
+      containers:
+        - name: sociallearn-msg
+          image: georgefurtado/sociallearnmsg:sociallearn-msg-v1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_RABBITMQ_HOST
+              value: rabbitmq
+            - name: SPRING_RABBITMQ_PORT
+              value: "5672"
+            - name: SPRING_RABBITMQ_PASSWORD
+              value: guest
+            - name: SPRING_RABBITMQ_USERNAME
+              value: guest
